@@ -26,6 +26,10 @@ YuruAgent aims to grow from a simple agent runner into a general-purpose workspa
 
 This repository is currently an empty project scaffold. The initial implementation plan will be added before the first development milestone.
 
+## Documentation
+
+- [Roadmap and Phase Plan](docs/ROADMAP.md)
+
 ## License
 
 MIT
