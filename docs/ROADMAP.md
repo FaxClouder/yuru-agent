@@ -26,21 +26,34 @@ Create Agent
 
 Goal: establish the engineering foundation and project management system.
 
+Status: scaffold implemented in commit `4ab4952`.
+
 Features:
 
-- Monorepo project structure.
-- Next.js frontend foundation.
-- FastAPI backend foundation.
-- PostgreSQL local development environment.
-- README, roadmap, and architecture documentation.
-- GitHub Issues, milestones, and labels convention.
+- [x] Monorepo project structure.
+- [x] Next.js frontend foundation.
+- [x] FastAPI backend foundation.
+- [x] PostgreSQL local development environment definition.
+- [x] Milvus local development environment definition.
+- [x] README, roadmap, API contract, development guide, and architecture documentation.
+- [ ] GitHub Issues, milestones, and labels convention.
 
 Done when:
 
-- Frontend and backend can start locally.
-- Backend provides a health check.
-- Database connection works.
-- Documentation explains the project direction, architecture, and phase rules.
+- [x] Frontend and backend can start locally.
+- [x] Backend provides a health check.
+- [x] Database connection check endpoint exists.
+- [ ] Database connection works against a running local PostgreSQL service.
+- [x] Documentation explains the project direction, architecture, and phase rules.
+
+Notes:
+
+- Current local preview has been verified with the frontend on `127.0.0.1:3000`
+  and backend on `127.0.0.1:8002`.
+- `/api/health/db` returns `503` until PostgreSQL is started from
+  `infra/docker/docker-compose.yml`.
+- The `agents` table migration exists to validate the ORM and migration path,
+  but full Agent CRUD remains a Phase 1 task.
 
 ## Phase 1: Agent Workspace
 

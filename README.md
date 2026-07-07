@@ -34,6 +34,29 @@ The repository now contains the Phase 0 project foundation:
 
 Phase 1 will implement the real Agent Workspace CRUD loop.
 
+## Current Progress
+
+The Phase 0 scaffold landed in commit `4ab4952` and is available on
+`origin/main`.
+
+Completed:
+
+- Frontend and backend project skeletons are runnable locally.
+- Backend exposes `/health`, `/api/health/db`, and reserved module APIs.
+- Frontend renders the first workspace screen with reserved module navigation.
+- SQLAlchemy 2.x, Alembic, and the minimal `agents` table migration are in place.
+- PostgreSQL + pgvector and Milvus local infrastructure is defined in Docker
+  Compose.
+- Phase documentation, API contracts, and development notes are available in
+  `docs/`.
+
+Current limitations:
+
+- Agent CRUD is intentionally reserved for Phase 1.
+- LangGraph execution is intentionally reserved for Phase 2.
+- Memory, RAG, tools, and workflows are interface placeholders only.
+- Database health returns `503` until local PostgreSQL is started.
+
 ## Quick Start
 
 Install dependencies:
@@ -55,10 +78,23 @@ Run the backend:
 uv run --project apps/api uvicorn yuru_agent_api.main:app --reload --app-dir apps/api/src
 ```
 
+If port `8000` is occupied, use another port:
+
+```powershell
+uv run --project apps/api uvicorn yuru_agent_api.main:app --reload --app-dir apps/api/src --host 127.0.0.1 --port 8002
+```
+
 Run the frontend:
 
 ```powershell
 pnpm --dir apps/web dev
+```
+
+Local preview used during Phase 0 verification:
+
+```text
+Frontend: http://127.0.0.1:3000
+Backend:  http://127.0.0.1:8002
 ```
 
 Run checks:
